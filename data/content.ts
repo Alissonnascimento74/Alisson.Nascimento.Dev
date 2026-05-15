@@ -7,7 +7,7 @@ export const content = {
     bio: "Sou desenvolvedor iOS focado em criar aplicativos performáticos e com design impecável. Trabalho com Swift, SwiftUI, UIKit e tenho paixão por arquiteturas limpas, animações fluidas e experiências que parecem inevitáveis.",
     email: "nascimento.dev.swift@gmail.com",
     avatar: "",
-    siteUrl: "https://seu-portfolio.vercel.app",
+    siteUrl: "https://alisson-nascimento-dev.vercel.app",
   },
 
   socials: [
