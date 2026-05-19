@@ -66,7 +66,7 @@ Aprendi também a tomar decisões de design — escolha de cores, tipografia e h
     {
       slug: "meu-primeiro-app-erros-e-aprendizados",
       title: "Meu primeiro app: os erros que me ensinaram mais do que qualquer tutorial",
-      excerpt: "Letra maiúscula no lugar errado, timer que acelerava, função fora do lugar — e o que aprendi com cada tropeço.",
+      excerpt: "Letra maiúscula no lugar errado, timer que acelerava, função fora do lugar. E o que aprendi com cada tropeço.",
       date: "2026-05-19",
       readingTime: "4 min",
       content: `
@@ -76,11 +76,11 @@ Quando decidi construir meu primeiro app em SwiftUI, achei que o maior desafio s
 
 Logo no começo, o compilador acusava erro numa linha que eu jurava estar correta. Depois de muito tempo olhando, descobri o problema: uma letra minúscula onde deveria ser maiúscula.
 
-Em Swift, isso importa. \`isRunning\` e \`IsRunning\` são coisas completamente diferentes. A linguagem é **case-sensitive** — e o Xcode não é sempre gentil ao explicar isso pra quem está começando.
+Em Swift, isso importa. \`isRunning\` e \`IsRunning\` são coisas completamente diferentes. A linguagem é **case-sensitive**, e o Xcode não é sempre gentil ao explicar isso pra quem está começando.
 
 Aprendi que nomear variáveis com clareza não é frescura. É necessidade.
 
-## A função que não funcionava — e eu não sabia por quê
+## A função que não funcionava, e eu não sabia por quê
 
 Num dos momentos mais frustrantes, criei uma função mas ela simplesmente não era reconhecida. O erro era estranho e eu não conseguia entender.
 
@@ -101,7 +101,7 @@ Esse erro me ensinou a prestar atenção nas chaves \`{ }\` com o mesmo cuidado 
 
 ## O timer que virava uma bagunça
 
-Implementei o timer e funcionou. Fiquei feliz. Cliquei em Start de novo — e o tempo começou a cair duas vezes mais rápido.
+Implementei o timer e funcionou. Fiquei feliz. Cliquei em Start de novo, e o tempo começou a cair duas vezes mais rápido.
 
 O problema: cada clique criava um **novo** Timer sem cancelar o anterior. Dois timers rodando ao mesmo tempo, cada um subtraindo 1 segundo.
 
@@ -119,7 +119,7 @@ Simples assim. Mas só cheguei nessa simplicidade depois de entender o problema 
 
 ## O bug fantasma do Preview
 
-Por último — e mais misterioso — o preview do Xcode simplesmente não funcionava. Nenhum erro claro, nenhuma mensagem útil.
+Por último, e mais misterioso, o preview do Xcode simplesmente não funcionava. Nenhum erro claro, nenhuma mensagem útil.
 
 Depois de investigar, descobri que o problema era uma divergência de maiúsculas e minúsculas no caminho da minha conta de usuário no Mac: \`/Users/devsys\` vs \`/Users/DEVSYS\`. O Xcode validava o caminho de forma case-sensitive e travava silenciosamente.
 
@@ -127,7 +127,7 @@ Fix: alinhar o registro da conta no sistema com o nome real da pasta. Problema r
 
 ## O que esses erros me ensinaram
 
-Cada bug que resolvi sozinho ficou gravado em minha mente de uma forma que somente leitura não faz. Aprendi Swift e SwiftUI lendo — mas fixei de verdade **consertando o que eu quebrei**.
+Cada bug que resolvi sozinho ficou gravado em minha mente de uma forma que somente leitura não faz. Aprendi Swift e SwiftUI lendo, mas fixei de verdade **consertando o que eu quebrei**.
 
 Se você está começando: não tenha medo de errar. Tenha medo de não entender o erro.
       `.trim(),
@@ -135,19 +135,19 @@ Se você está começando: não tenha medo de errar. Tenha medo de não entender
     {
       slug: "aprenda-swift-diego-rodrigues",
       title: "O livro que está moldando minha base em Swift",
-      excerpt: "Uma análise honesta do 'Aprenda Swift' de Diego Rodrigues — por quem está usando ele agora.",
+      excerpt: "Uma análise honesta do 'Aprenda Swift' de Diego Rodrigues, por quem está usando ele agora.",
       date: "2026-05-18",
       readingTime: "3 min",
       content: `
-Quando decidi aprender Swift, a primeira dúvida foi: por onde começar? A internet tem tutoriais demais, cursos demais, opiniões demais. Precisava de algo com começo, meio e fim — e encontrei no **"Aprenda Swift"** de Diego Rodrigues.
+Quando decidi aprender Swift, a primeira dúvida foi: por onde começar? A internet tem tutoriais demais, cursos demais, opiniões demais. Precisava de algo com começo, meio e fim, e encontrei no **"Aprenda Swift"** de Diego Rodrigues.
 
 ## O que diferencia esse livro
 
 A maioria dos materiais de programação peca no mesmo lugar: jogam conceitos abstratos em você esperando que a conexão aconteça naturalmente. Diego faz o oposto.
 
-Cada conceito vem acompanhado de **exemplos reais de código** — não aquele "soma dois números" que não serve pra nada. Os exemplos fazem sentido. Você lê, entende e já consegue imaginar onde usaria aquilo.
+Cada conceito vem acompanhado de **exemplos reais de código**, não aquele "soma dois números" que não serve pra nada. Os exemplos fazem sentido. Você lê, entende e já consegue imaginar onde usaria aquilo.
 
-O capítulo de operadores e estruturas de controle (\`if\`, \`switch\`, \`for\`, \`while\`) foi onde isso ficou mais claro pra mim. São conceitos que parecem simples mas têm muitas nuances — e o livro passa por cada uma sem pressa e sem enrolação.
+O capítulo de operadores e estruturas de controle (\`if\`, \`switch\`, \`for\`, \`while\`) foi onde isso ficou mais claro pra mim. São conceitos que parecem simples mas têm muitas nuances, e o livro passa por cada uma sem pressa e sem enrolação.
 
 ## O que mais gostei
 
@@ -157,7 +157,7 @@ Isso faz diferença quando você está travado num erro às 23h e precisa voltar
 
 ## Para quem recomendo
 
-Se você está começando do zero em Swift e quer uma base sólida antes de mergulhar no SwiftUI — esse livro é o ponto de partida certo. Ele não vai te transformar em sênior, mas vai te dar o vocabulário e a lógica necessários pra aprender qualquer coisa depois.
+Se você está começando do zero em Swift e quer uma base sólida antes de mergulhar no SwiftUI, esse livro é o ponto de partida certo. Ele não vai te transformar em sênior, mas vai te dar o vocabulário e a lógica necessários pra aprender qualquer coisa depois.
 
 Estou no meio do livro ainda. Quando terminar, volto aqui com uma análise completa.
       `.trim(),

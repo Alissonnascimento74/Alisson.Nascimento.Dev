@@ -71,18 +71,26 @@ export default function ProjectPage({ params }: { params: Params }) {
 
           {"screenshots" in project && Array.isArray((project as any).screenshots) && (
             <>
-              {/* Desktop — empilhado com rotação e fade-in */}
+              {/* Desktop — empilhado, abre em leque no hover */}
               <Reveal>
-                <div className="relative h-[480px] hidden md:block">
+                <div className="relative h-[480px] hidden md:block group">
                   {((project as any).screenshots as string[]).map((src: string, i: number) => {
-                    const rotations = ["-rotate-3", "rotate-2", "-rotate-1"];
-                    const tops      = ["top-0",     "top-8",    "top-16"];
-                    const rights    = ["right-0",   "right-6",  "right-12"];
-                    const zIndexes  = ["z-30",      "z-20",     "z-10"];
+                    // Posição inicial (empilhado no centro com rotação leve)
+                    const stacked = [
+                      "left-1/2 -translate-x-1/2 rotate-[-4deg] z-10",
+                      "left-1/2 -translate-x-1/2 rotate-[0deg]  z-20",
+                      "left-1/2 -translate-x-1/2 rotate-[4deg]  z-30",
+                    ];
+                    // Posição no hover (em leque, sem rotação)
+                    const fanned = [
+                      "group-hover:!left-0      group-hover:!translate-x-0 group-hover:!rotate-[-6deg]",
+                      "group-hover:!left-1/2    group-hover:!-translate-x-1/2 group-hover:!rotate-0",
+                      "group-hover:!left-full   group-hover:!-translate-x-full group-hover:!rotate-[6deg]",
+                    ];
                     return (
                       <div
                         key={src}
-                        className={`absolute ${tops[i]} ${rights[i]} ${zIndexes[i]} ${rotations[i]} transition-transform duration-300 hover:scale-105 hover:z-40`}
+                        className={`absolute top-4 ${stacked[i]} ${fanned[i]} transition-all duration-700 ease-out`}
                       >
                         <Image
                           src={src}
