@@ -71,16 +71,19 @@ export default function ProjectPage({ params }: { params: Params }) {
 
           {"screenshots" in project && Array.isArray((project as any).screenshots) && (
             <>
-              {/* Desktop — empilhado com rotação */}
-              <div className="relative h-[480px] hidden md:block">
-                {((project as any).screenshots as string[]).map((src: string, i: number) => {
-                  const rotations = ["-rotate-3", "rotate-2", "-rotate-1"];
-                  const tops      = ["top-0",     "top-8",    "top-16"];
-                  const rights    = ["right-0",   "right-6",  "right-12"];
-                  const zIndexes  = ["z-30",      "z-20",     "z-10"];
-                  return (
-                    <Reveal key={src} delay={i * 150}>
-                      <div className={`absolute ${tops[i]} ${rights[i]} ${zIndexes[i]} ${rotations[i]} transition-transform duration-300 hover:scale-105 hover:z-40`}>
+              {/* Desktop — empilhado com rotação e fade-in */}
+              <Reveal>
+                <div className="relative h-[480px] hidden md:block">
+                  {((project as any).screenshots as string[]).map((src: string, i: number) => {
+                    const rotations = ["-rotate-3", "rotate-2", "-rotate-1"];
+                    const tops      = ["top-0",     "top-8",    "top-16"];
+                    const rights    = ["right-0",   "right-6",  "right-12"];
+                    const zIndexes  = ["z-30",      "z-20",     "z-10"];
+                    return (
+                      <div
+                        key={src}
+                        className={`absolute ${tops[i]} ${rights[i]} ${zIndexes[i]} ${rotations[i]} transition-transform duration-300 hover:scale-105 hover:z-40`}
+                      >
                         <Image
                           src={src}
                           alt={`Screenshot ${i + 1}`}
@@ -89,10 +92,10 @@ export default function ProjectPage({ params }: { params: Params }) {
                           className="rounded-[2rem] shadow-2xl border border-white/10"
                         />
                       </div>
-                    </Reveal>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              </Reveal>
 
               {/* Mobile — coluna centralizada, uma embaixo da outra */}
               <div className="flex flex-col items-center gap-8 md:hidden">

@@ -7,9 +7,9 @@ export function Contact() {
     <section id="contact" className="border-t border-line/60 dark:border-white/10 bg-ink text-paper">
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-40">
         <Reveal>
-          <p className="text-sm uppercase tracking-[0.2em] text-paper/50 mb-8">Vamos conversar</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-paper/50 mb-8">Contato</p>
           <h2 className="font-display font-light text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-12 max-w-3xl">
-            Tem uma ideia bacana? Adoraria ouvir.
+            Vamos construir algo incrível juntos.
           </h2>
           <a href={`mailto:${profile.email}`} className="font-display text-2xl md:text-4xl link-underline">
             {profile.email}

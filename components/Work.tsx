@@ -50,7 +50,7 @@ export function Work() {
                     </div>
                   </div>
 
-                  <div className="col-span-12 md:col-span-3 flex md:flex-col gap-3 md:items-end text-sm text-muted dark:text-white/50 md:self-start">
+                  <div className="col-span-12 md:col-span-3 flex flex-col gap-3 items-start md:items-end text-sm text-muted dark:text-white/50 md:self-start">
                     {p.cover && (
                       <Image
                         src={p.cover}
