@@ -28,6 +28,7 @@ export const content = {
       github:   "https://github.com/Alissonnascimento74/pomodoro-ios",
       website:  "",
       cover: "/pomodoro-cover.png",
+      screenshots: ["/pomodoro-cover.png", "/pomodoro-break.png", "/pomodoro-sessions.png"],
       content: `
 ## O problema
 
@@ -55,6 +56,8 @@ Uma tela. Um número. Um botão. Design em preto, roxo e dourado — elegante e 
 ## O que aprendi
 
 Esse foi meu primeiro app SwiftUI completo. Aprendi na prática como @State redesenha a interface, como controlar um Timer sem vazamento de memória e como construir layouts com ZStack, VStack e HStack.
+
+Aprendi também a tomar decisões de design — escolha de cores, tipografia e hierarquia visual — pensando na experiência do usuário final.
       `.trim(),
     },
   ],
