@@ -27,7 +27,7 @@ export const content = {
       appStore: "",
       github:   "https://github.com/Alissonnascimento74/pomodoro-ios",
       website:  "",
-      cover: "/pomodoro-cover.png",
+      cover: "/pomodoro-icon.png",
       screenshots: ["/pomodoro-cover.png", "/pomodoro-break.png", "/pomodoro-sessions.png"],
       content: `
 ## O problema

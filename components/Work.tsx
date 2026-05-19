@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { content } from "@/data/content";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
@@ -50,6 +51,15 @@ export function Work() {
                   </div>
 
                   <div className="col-span-12 md:col-span-3 flex md:flex-col gap-3 md:items-end text-sm text-muted dark:text-white/50 md:self-start">
+                    {p.cover && (
+                      <Image
+                        src={p.cover}
+                        alt={`${p.name} icon`}
+                        width={56}
+                        height={56}
+                        className="rounded-[14px] shadow-lg border border-white/10 mb-1"
+                      />
+                    )}
                     <span className="link-underline">Ver projeto ↗</span>
                   </div>
                 </Link>
