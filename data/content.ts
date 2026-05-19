@@ -21,13 +21,13 @@ export const content = {
       slug: "focus",
       name: "Focus",
       tagline: "Timer pomodoro minimalista pra iPhone.",
-      description: "App de produtividade focado em uma experiência limpa e silenciosa, sem ruído visual.",
-      tags: ["SwiftUI", "Combine", "Animation"],
+      description: "App de produtividade com ciclos Focus/Break, anel de progresso animado e design preto, roxo e dourado.",
+      tags: ["SwiftUI", "Timer", "Animation"],
       year: "2026",
       appStore: "",
-      github:   "",
+      github:   "https://github.com/Alissonnascimento74/pomodoro-ios",
       website:  "",
-      cover: "",
+      cover: "/pomodoro-cover.png",
       content: `
 ## O problema
 
@@ -35,17 +35,26 @@ Aplicativos de produtividade modernos costumam ser barulhentos — notificaçõe
 
 ## A solução
 
-Uma tela. Um número. Um botão. Foi essa a regra que segui pra construir o Focus.
+Uma tela. Um número. Um botão. Design em preto, roxo e dourado — elegante e direto ao ponto.
+
+## Funcionalidades
+
+- Ciclos automáticos Focus (25min) → Break (5min)
+- Anel de progresso circular animado (dourado no Focus, roxo no Break)
+- Botões com SF Symbols: Play/Pause, Reset e Skip
+- Contador de sessões completadas com meta de 4 pomodoros
+- Ícone personalizado gerado em Swift
 
 ## Decisões técnicas
 
 - **UI**: SwiftUI puro
-- **Estado**: @State e @Observable
-- **Animações**: SwiftUI Animation com curvas customizadas
+- **Estado**: @State para tempo, sessão e status do timer
+- **Timer**: Timer.scheduledTimer com invalidação controlada
+- **Animações**: SwiftUI Animation linear sincronizada ao progresso
 
 ## O que aprendi
 
-Em construção — esse foi meu primeiro app SwiftUI. Estou documentando tudo nesse processo.
+Esse foi meu primeiro app SwiftUI completo. Aprendi na prática como @State redesenha a interface, como controlar um Timer sem vazamento de memória e como construir layouts com ZStack, VStack e HStack.
       `.trim(),
     },
   ],
@@ -89,9 +98,7 @@ Construir projetos reais, contribuir com a comunidade e buscar minha primeira op
   ],
 
   skills: [
-    "Swift", "SwiftUI", "UIKit", "Combine", "Async/Await",
-    "Core Data", "SwiftData", "CloudKit", "WidgetKit",
-    "MVVM", "XCTest", "Git",
+    "Swift", "SwiftUI", "Timer API", "SF Symbols", "Git",
   ],
 };
 
