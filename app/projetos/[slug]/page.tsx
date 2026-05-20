@@ -123,6 +123,29 @@ export default function ProjectPage({ params }: { params: Params }) {
           )}
         </div>
 
+        {/* Demo video — autoplay, mute, loop infinito. Aparece só se o projeto tem 'demo'. */}
+        {"demo" in project && (project as any).demo && (
+          <Reveal>
+            <section className="mb-20">
+              <p className="text-sm uppercase tracking-[0.2em] text-muted dark:text-white/50 mb-6 text-center">
+                Em ação
+              </p>
+              <div className="flex justify-center">
+                <video
+                  src={(project as any).demo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={`${project.name} em execução`}
+                  className="w-[280px] md:w-[320px] rounded-[2rem] shadow-2xl border border-white/10"
+                />
+              </div>
+            </section>
+          </Reveal>
+        )}
+
         <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
       </article>
     </main>

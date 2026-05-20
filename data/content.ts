@@ -28,6 +28,7 @@ export const content = {
       github:   "https://github.com/Alissonnascimento74/pomodoro-ios",
       website:  "",
       cover: "/pomodoro-icon.png",
+      demo: "/pomodoro-demo.mp4",
       screenshots: ["/pomodoro-cover.png", "/pomodoro-break.png", "/pomodoro-iphone.png"],
       content: `
 ## O problema
