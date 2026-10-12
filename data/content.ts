@@ -42,9 +42,9 @@ const pt = {
   profile: {
     ...person,
     role: "Desenvolvedor iOS em formação",
-    location: "São Paulo, Brasil",
+    location: "Guarulhos, São Paulo",
     headline: "Transformando ideias em apps.",
-    story: "Do macaco ao Xcode.",
+    story: "Dos motores ao Xcode.",
     bio: "Antes de escrever minha primeira linha de código, passei 6 anos como mecânico de automóveis. Hoje estudo Engenharia de Software na UniFamma e construo apps para iPhone com Swift e SwiftUI.",
     bio2: "A oficina me ensinou a diagnosticar antes de trocar peça, e é assim que encaro um bug: entender a causa de verdade antes de mexer no código. Também me ensinou a explicar coisa técnica pra quem não é da área, que é o tema da minha pesquisa com realidade aumentada.",
     now: "Voltando aos estudos de Swift com o livro “Aprenda Swift”, de Diego Rodrigues, e construindo o BetterFocus: um app de tarefas e foco em SwiftUI e SwiftData.",
@@ -104,7 +104,7 @@ Aprendi também a tomar decisões de design — escolha de cores, tipografia e h
       company: "UniFamma",
       role: "Engenharia de Software",
       period: "2024 — 2028 (em andamento)",
-      description: "Graduação com foco em fundamentos de engenharia de software. No Projeto Interdisciplinar I, escrevi um artigo sobre realidade aumentada no iOS como apoio ao aprendizado de mecânica automotiva, com foco em acessibilidade.",
+      description: "Graduação EAD com foco em fundamentos de engenharia de software. No Projeto Interdisciplinar I, escrevi um artigo sobre realidade aumentada no iOS como apoio ao aprendizado de mecânica automotiva, com foco em acessibilidade.",
     },
     {
       company: "Mecânica automotiva",
@@ -120,9 +120,9 @@ const en: typeof pt = {
   profile: {
     ...person,
     role: "Junior iOS Developer",
-    location: "São Paulo, Brazil",
+    location: "Guarulhos, São Paulo, Brazil",
     headline: "Turning ideas into apps.",
-    story: "From car jacks to Xcode.",
+    story: "From engines to Xcode.",
     bio: "Before writing my first line of code, I spent 6 years as a car mechanic. Today I study Software Engineering at UniFamma (Brazil) and build iPhone apps with Swift and SwiftUI.",
     bio2: "The garage taught me to diagnose before replacing parts, and that’s how I approach bugs: understand the real cause before touching the code. It also taught me to explain technical things to non-experts, which is the topic of my augmented reality research.",
     now: "Getting back to my Swift studies with Diego Rodrigues’ book “Aprenda Swift” and building BetterFocus: a tasks and focus app with SwiftUI and SwiftData.",
@@ -182,7 +182,7 @@ I also learned to make design decisions (colors, typography and visual hierarchy
       company: "UniFamma",
       role: "B.Sc. in Software Engineering",
       period: "2024 — 2028 (in progress)",
-      description: "Software engineering fundamentals. For my first interdisciplinary project, I wrote a paper on augmented reality on iOS as a learning aid for car mechanics, focused on accessibility.",
+      description: "Online degree focused on software engineering fundamentals. For my first interdisciplinary project, I wrote a paper on augmented reality on iOS as a learning aid for car mechanics, focused on accessibility.",
     },
     {
       company: "Automotive repair",
