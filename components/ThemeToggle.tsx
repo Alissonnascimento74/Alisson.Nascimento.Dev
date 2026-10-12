@@ -2,12 +2,13 @@
 
 import { useTheme } from "./ThemeProvider";
 
-export function ThemeToggle() {
+export function ThemeToggle({ label = "Alternar tema claro/escuro" }: { label?: string }) {
   const { theme, toggle } = useTheme();
   return (
     <button
       onClick={toggle}
-      aria-label="Alternar tema"
+      type="button"
+      aria-label={label}
       className="w-9 h-9 flex items-center justify-center rounded-full border border-line/60 hover:bg-ink/5 dark:hover:bg-paper/10 transition-colors"
     >
       {theme === "light" ? (

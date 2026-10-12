@@ -1,18 +1,25 @@
-import { content } from "@/data/content";
+import { getContent } from "@/data/content";
+import { ui, type Lang } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 
-export function Contact() {
-  const { profile, socials } = content;
+export function Contact({ lang = "pt" }: { lang?: Lang }) {
+  const { profile, socials } = getContent(lang);
+  const t = ui[lang];
   return (
     <section id="contact" className="border-t border-line/60 dark:border-white/10 bg-ink text-paper">
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-40">
         <Reveal>
-          <p className="text-sm uppercase tracking-[0.2em] text-paper/50 mb-8">Contato</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-paper/50 mb-8">{t.contactKicker}</p>
           <h2 className="font-display font-light text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-12 max-w-3xl">
-            Vamos construir algo incrível juntos.
+            {t.contactTitle}
           </h2>
-          <a href={`mailto:${profile.email}`} className="font-display text-2xl md:text-4xl link-underline">
-            {profile.email}
+          {/* No celular o e-mail é largo demais pra uma linha: letra menor e quebra permitida depois do "@" */}
+          <a
+            href={`mailto:${profile.email}`}
+            className="font-display text-xl sm:text-2xl md:text-4xl link-underline [overflow-wrap:anywhere]"
+          >
+            {profile.email.split("@")[0]}@<wbr />
+            {profile.email.split("@")[1]}
           </a>
         </Reveal>
 

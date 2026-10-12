@@ -5,31 +5,34 @@ import { content } from "@/data/content";
 import { markdownToHtml } from "@/lib/markdown";
 import { Nav } from "@/components/Nav";
 
-type Params = { slug: string };
+type Params = Promise<{ slug: string }>;
 
-export function generateStaticParams(): Params[] {
+export function generateStaticParams() {
   return content.posts.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const post = content.posts.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = content.posts.find((p) => p.slug === slug);
   if (!post) return {};
   return {
     title: post.title,
     description: post.excerpt,
-    openGraph: { title: post.title, description: post.excerpt, type: "article" },
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: { title: post.title, description: post.excerpt, type: "article", url: `/blog/${slug}` },
   };
 }
 
-export default function PostPage({ params }: { params: Params }) {
-  const post = content.posts.find((p) => p.slug === params.slug);
+export default async function PostPage({ params }: { params: Params }) {
+  const { slug } = await params;
+  const post = content.posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
   const html = markdownToHtml(post.content);
 
   return (
     <main>
-      <Nav />
+      <Nav lang="pt" altHref="/en" />
       <article className="max-w-6xl mx-auto px-6 md:px-10 pt-20 md:pt-32 pb-24">
         <Link href="/blog" className="text-sm text-muted dark:text-white/50 link-underline">
           ← Voltar pro blog

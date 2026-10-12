@@ -1,35 +1,59 @@
-export const content = {
+/**
+ * Conteúdo do portfólio, em português (pt) e inglês (en).
+ * Textos fixos da interface (menu, botões) ficam em lib/i18n.ts.
+ * Os posts do blog são só em português (aparecem nos dois idiomas).
+ */
+
+import type { Lang } from "@/lib/i18n";
+
+// O endereço do site vem do next.config.js (na Vercel é automático).
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://alisson-nascimento-dev.vercel.app";
+
+const person = {
+  name: "Alisson Nascimento",
+  email: "nascimento.dev.swift@gmail.com",
+  avatar: "",
+  siteUrl,
+};
+
+export const socials = [
+  { label: "GitHub",   href: "https://github.com/Alissonnascimento74" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/alisson-nascimento-811a42272" },
+  { label: "Email",    href: "mailto:nascimento.dev.swift@gmail.com" },
+];
+
+// Dados do Focus que não mudam com o idioma
+const focus = {
+  slug: "focus",
+  name: "Focus",
+  tags: ["SwiftUI", "Timer", "Animation"],
+  year: "2026",
+  appStore: "",
+  github: "https://github.com/Alissonnascimento74/Pomodoro-ios",
+  website: "",
+  cover: "/pomodoro-icon.png",
+  demo: "/pomodoro-demo.mp4",
+  screenshots: ["/pomodoro-cover.png", "/pomodoro-break.png", "/pomodoro-iphone.png"],
+};
+
+type Experience = { company: string; role: string; period: string; description: string; href?: string };
+
+const pt = {
   profile: {
-    name: "Alisson Nascimento",
-    role: "iOS Developer (em formação)",
+    ...person,
+    role: "Desenvolvedor iOS em formação",
     location: "São Paulo, Brasil",
     headline: "Transformando ideias em apps.",
-    bio: "Sou desenvolvedor iOS em formação, focado em criar aplicativos com design cuidadoso e código limpo. Trabalho com Swift e SwiftUI, e tenho paixão por transformar ideias em experiências reais que cabem no bolso das pessoas.",
-    email: "nascimento.dev.swift@gmail.com",
-    avatar: "",
-    siteUrl: "https://alisson-nascimento-dev.vercel.app",
+    story: "Do macaco ao Xcode.",
+    bio: "Antes de escrever minha primeira linha de código, passei 6 anos como mecânico de automóveis. Hoje estudo Engenharia de Software na UniFamma e construo apps para iPhone com Swift e SwiftUI.",
+    bio2: "A oficina me ensinou a diagnosticar antes de trocar peça, e é assim que encaro um bug: entender a causa de verdade antes de mexer no código. Também me ensinou a explicar coisa técnica pra quem não é da área, que é o tema da minha pesquisa com realidade aumentada.",
+    now: "Voltando aos estudos de Swift com o livro “Aprenda Swift”, de Diego Rodrigues, e construindo o BetterFocus: um app de tarefas e foco em SwiftUI e SwiftData.",
   },
-
-  socials: [
-    { label: "GitHub",   href: "https://github.com/Alissonnascimento74" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/alisson-nascimento-811a42272" },
-    { label: "Email",    href: "mailto:nascimento.dev.swift@gmail.com" },
-  ],
-
   projects: [
     {
-      slug: "focus",
-      name: "Focus",
+      ...focus,
       tagline: "Timer pomodoro minimalista pra iPhone.",
       description: "App de produtividade com ciclos Focus/Break, anel de progresso animado e design preto, roxo e dourado.",
-      tags: ["SwiftUI", "Timer", "Animation"],
-      year: "2026",
-      appStore: "",
-      github:   "https://github.com/Alissonnascimento74/pomodoro-ios",
-      website:  "",
-      cover: "/pomodoro-icon.png",
-      demo: "/pomodoro-demo.mp4",
-      screenshots: ["/pomodoro-cover.png", "/pomodoro-break.png", "/pomodoro-iphone.png"],
       content: `
 ## O problema
 
@@ -62,7 +86,117 @@ Aprendi também a tomar decisões de design — escolha de cores, tipografia e h
       `.trim(),
     },
   ],
+  experience: [
+    {
+      company: "AN Services",
+      role: "Fundador",
+      period: "2026 — Presente",
+      description: "Minha empresa de sites e apps para pequenos negócios.",
+      href: "https://anservices.vercel.app",
+    },
+    {
+      company: "Disponível para oportunidades",
+      role: "Desenvolvedor iOS",
+      period: "2026 — Presente",
+      description: "Em busca da primeira vaga como dev iOS (estágio ou júnior). Estudando Swift e SwiftUI com projetos próprios publicados no GitHub.",
+    },
+    {
+      company: "UniFamma",
+      role: "Engenharia de Software",
+      period: "2024 — 2028 (em andamento)",
+      description: "Graduação com foco em fundamentos de engenharia de software. No Projeto Interdisciplinar I, escrevi um artigo sobre realidade aumentada no iOS como apoio ao aprendizado de mecânica automotiva, com foco em acessibilidade.",
+    },
+    {
+      company: "Mecânica automotiva",
+      role: "Mecânico",
+      period: "6 anos",
+      description: "Diagnóstico e reparo de veículos. Foi onde aprendi a achar a causa do problema antes de sair trocando peça.",
+    },
+  ] as Experience[],
+  skills: ["Swift", "SwiftUI", "Xcode", "Git & GitHub", "SF Symbols", "Timer API"],
+};
 
+const en: typeof pt = {
+  profile: {
+    ...person,
+    role: "Junior iOS Developer",
+    location: "São Paulo, Brazil",
+    headline: "Turning ideas into apps.",
+    story: "From car jacks to Xcode.",
+    bio: "Before writing my first line of code, I spent 6 years as a car mechanic. Today I study Software Engineering at UniFamma (Brazil) and build iPhone apps with Swift and SwiftUI.",
+    bio2: "The garage taught me to diagnose before replacing parts, and that’s how I approach bugs: understand the real cause before touching the code. It also taught me to explain technical things to non-experts, which is the topic of my augmented reality research.",
+    now: "Getting back to my Swift studies with Diego Rodrigues’ book “Aprenda Swift” and building BetterFocus: a tasks and focus app with SwiftUI and SwiftData.",
+  },
+  projects: [
+    {
+      ...focus,
+      tagline: "A minimalist Pomodoro timer for iPhone.",
+      description: "Productivity app with Focus/Break cycles, an animated progress ring and a black, purple and gold design.",
+      content: `
+## The problem
+
+Modern productivity apps tend to be noisy: notifications, gamification, charts. A Pomodoro timer should do the opposite: get out of the way and let you focus.
+
+## The solution
+
+One screen. One number. One button. A black, purple and gold design, elegant and straight to the point.
+
+## Features
+
+- Automatic Focus (25 min) → Break (5 min) cycles
+- Animated circular progress ring (gold during Focus, purple during Break)
+- SF Symbols buttons: Play/Pause, Reset and Skip
+- Completed sessions counter with a goal of 4 pomodoros
+- Custom app icon generated in Swift
+
+## Technical decisions
+
+- **UI**: pure SwiftUI
+- **State**: @State for time, session and timer status
+- **Timer**: Timer.scheduledTimer with controlled invalidation
+- **Animations**: linear SwiftUI Animation synced to progress
+
+## What I learned
+
+This was my first complete SwiftUI app. I learned in practice how @State redraws the interface, how to control a Timer without memory leaks, and how to build layouts with ZStack, VStack and HStack.
+
+I also learned to make design decisions (colors, typography and visual hierarchy) with the end user’s experience in mind.
+      `.trim(),
+    },
+  ],
+  experience: [
+    {
+      company: "AN Services",
+      role: "Founder",
+      period: "2026 — Present",
+      description: "My web and app studio for small businesses in Brazil.",
+      href: "https://anservices.vercel.app",
+    },
+    {
+      company: "Open to opportunities",
+      role: "iOS Developer",
+      period: "2026 — Present",
+      description: "Looking for my first iOS role (internship or junior). Studying Swift and SwiftUI through my own projects, published on GitHub.",
+    },
+    {
+      company: "UniFamma",
+      role: "B.Sc. in Software Engineering",
+      period: "2024 — 2028 (in progress)",
+      description: "Software engineering fundamentals. For my first interdisciplinary project, I wrote a paper on augmented reality on iOS as a learning aid for car mechanics, focused on accessibility.",
+    },
+    {
+      company: "Automotive repair",
+      role: "Car Mechanic",
+      period: "6 years",
+      description: "Vehicle diagnosis and repair. Where I learned to find the root cause before replacing parts.",
+    },
+  ],
+  skills: pt.skills,
+};
+
+export const content = {
+  pt,
+  en,
   posts: [
     {
       slug: "meu-primeiro-app-erros-e-aprendizados",
@@ -185,25 +319,12 @@ Construir projetos reais, evoluir cada dia mais como desenvolvedor e buscar minh
     },
   ],
 
-  experience: [
-    {
-      company: "Disponível para oportunidades",
-      role: "iOS Developer",
-      period: "2026 — Presente",
-      description: "Em busca da minha primeira oportunidade como desenvolvedor iOS. Construindo projetos pessoais com Swift e SwiftUI, aprofundando os fundamentos da linguagem e do framework a cada novo desafio.",
-    },
-    {
-      company: "UniFamma",
-      role: "Engenharia de Software",
-      period: "2024 — 2028 (em andamento)",
-      description: "Graduação com foco em fundamentos de engenharia de software. Aplicando os conceitos estudados em projetos práticos com Swift e SwiftUI.",
-    },
-  ],
-
-  skills: [
-    "Swift", "SwiftUI", "Timer API", "SF Symbols", "Git",
-  ],
 };
 
-export type Project = (typeof content.projects)[number];
+/** Tudo que uma página precisa, no idioma pedido. */
+export function getContent(lang: Lang) {
+  return { ...content[lang], posts: content.posts, socials };
+}
+
+export type Project = (typeof pt.projects)[number];
 export type Post = (typeof content.posts)[number];

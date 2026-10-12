@@ -1,27 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
-import { content } from "@/data/content";
+import { getContent } from "@/data/content";
+import { paths, ui, type Lang } from "@/lib/i18n";
 import { Reveal } from "./Reveal";
 import { TiltCard } from "./TiltCard";
 
-export function Work() {
+export function Work({ lang = "pt" }: { lang?: Lang }) {
+  const { projects } = getContent(lang);
+  const t = ui[lang];
   return (
     <section id="work" className="border-t border-line/60 dark:border-white/10">
       <div className="max-w-6xl mx-auto px-6 md:px-10 py-24 md:py-32">
         <Reveal>
-          <h2 className="font-display text-3xl md:text-4xl mb-2">Trabalho selecionado</h2>
+          <h2 className="font-display text-3xl md:text-4xl mb-2">{t.workTitle}</h2>
           <p className="text-muted dark:text-white/50 mb-16 max-w-md">
-            Uma seleção dos projetos que mais gosto de mostrar.
+            {t.workSub}
           </p>
         </Reveal>
 
         <div className="divide-y divide-line/60 dark:divide-white/10">
-          {content.projects.map((p, i) => (
+          {projects.map((p, i) => (
             <Reveal key={p.slug} delay={i * 80}>
               <TiltCard>
                 <Link
-                  href={`/projetos/${p.slug}`}
-                  className="grid grid-cols-12 gap-6 py-12 md:py-16 group block"
+                  href={paths[lang].project(p.slug)}
+                  className="grid grid-cols-12 gap-y-6 md:gap-6 py-12 md:py-16 group block"
                 >
                   <div className="col-span-12 md:col-span-2 text-sm text-muted dark:text-white/50">
                     <span className="block font-display text-3xl md:text-4xl text-ink/30 dark:text-white/20 mb-1">
@@ -54,13 +57,13 @@ export function Work() {
                     {p.cover && (
                       <Image
                         src={p.cover}
-                        alt={`${p.name} icon`}
+                        alt=""
                         width={56}
                         height={56}
                         className="rounded-[14px] shadow-lg border border-white/10 mb-1"
                       />
                     )}
-                    <span className="link-underline">Ver projeto ↗</span>
+                    <span className="link-underline">{t.seeProject} ↗</span>
                   </div>
                 </Link>
               </TiltCard>

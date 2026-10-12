@@ -5,17 +5,19 @@ import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { FloatingThemeToggle } from "@/components/FloatingThemeToggle";
+import { ui } from "@/lib/i18n";
 
+// Página inicial em português (a versão em inglês está em app/en/page.tsx)
 export default function Home() {
   return (
     <main>
       <ScrollProgress />
-      <Nav />
-      <Hero />
-      <Work />
-      <About />
-      <Contact />
-      <FloatingThemeToggle />
+      <Nav lang="pt" altHref="/en" />
+      <Hero lang="pt" />
+      <Work lang="pt" />
+      <About lang="pt" />
+      <Contact lang="pt" />
+      <FloatingThemeToggle label={ui.pt.themeLabel} />
     </main>
   );
 }

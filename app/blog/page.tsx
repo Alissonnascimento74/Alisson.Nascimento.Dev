@@ -7,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Blog",
   description: "Artigos sobre desenvolvimento iOS, Swift e design.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogIndex() {
@@ -15,7 +16,7 @@ export default function BlogIndex() {
 
   return (
     <main>
-      <Nav />
+      <Nav lang="pt" altHref="/en" />
       <section className="max-w-6xl mx-auto px-6 md:px-10 pt-20 md:pt-32 pb-24">
         <Reveal>
           <p className="text-sm uppercase tracking-[0.2em] text-muted dark:text-white/50 mb-6">Escrevendo</p>

@@ -16,7 +16,7 @@ const sans = Inter_Tight({
   display: "swap",
 });
 
-const { profile } = content;
+const { profile } = content.pt;
 const title = `${profile.name} — ${profile.role}`;
 const description = profile.headline;
 
@@ -25,12 +25,14 @@ export const metadata: Metadata = {
   title: { default: title, template: `%s · ${profile.name}` },
   description,
   authors: [{ name: profile.name }],
+  alternates: { canonical: "/", languages: { "pt-BR": "/", en: "/en" } },
   openGraph: {
     title,
     description,
-    url: profile.siteUrl,
+    url: "/",
     siteName: profile.name,
     locale: "pt_BR",
+    alternateLocale: ["en_US"],
     type: "website",
   },
   twitter: { card: "summary_large_image", title, description },

@@ -2,13 +2,14 @@
 
 import { useTheme } from "./ThemeProvider";
 
-export function FloatingThemeToggle() {
+export function FloatingThemeToggle({ label = "Alternar tema claro/escuro" }: { label?: string }) {
   const { theme, toggle } = useTheme();
   return (
     <button
       onClick={toggle}
-      aria-label="Alternar tema"
-      className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-ink text-paper dark:bg-white dark:text-ink shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform duration-200"
+      type="button"
+      aria-label={label}
+      className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-ink text-paper dark:bg-white dark:text-ink shadow-lg ring-1 ring-white/25 dark:ring-black/10 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform duration-200"
     >
       {theme === "light" ? (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { content } from "@/data/content";
+import { getContent } from "@/data/content";
+import type { Lang } from "@/lib/i18n";
 import { Aurora } from "./Aurora";
 
-export function Hero() {
-  const { profile } = content;
+export function Hero({ lang = "pt" }: { lang?: Lang }) {
+  const { profile, socials } = getContent(lang);
   const words = profile.headline.split(" ");
 
   return (
@@ -17,7 +18,7 @@ export function Hero() {
         {profile.role} · {profile.location}
       </p>
 
-      <div className="grid grid-cols-12 gap-8 items-center">
+      <div className="grid grid-cols-12 gap-y-8 md:gap-8 items-center">
         <div className={profile.avatar ? "col-span-12 md:col-span-8" : "col-span-12"}>
           <h1 className="font-display font-light text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight">
             {words.map((word, i) => (
@@ -35,7 +36,7 @@ export function Hero() {
             className="mt-12 flex flex-wrap gap-6 text-sm animate-fade-up"
             style={{ animationDelay: `${words.length * 90 + 100}ms`, animationFillMode: "both" }}
           >
-            {content.socials.map((s) => (
+            {socials.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
