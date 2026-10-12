@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fundo também no <html>: o Safari do iPhone pinta a faixa do relógio/bateria e a "sobra" da
+   rolagem com essa cor (sem isso, ficava branco no tema escuro). color-scheme deixa barras e
+   campos do próprio navegador no tema certo. */
+html { background: #fbfbfd; color-scheme: light; }
+html.dark { background: #0a0a0c; color-scheme: dark; }
+
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
 body { font-feature-settings: "ss01", "cv01"; }
 ::selection { background: #1d1d1f; color: #fbfbfd; }
