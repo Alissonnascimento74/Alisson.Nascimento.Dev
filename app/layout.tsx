@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter_Tight } from "next/font/google";
 import { content } from "@/data/content";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -39,6 +39,15 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
 };
 
+// Cor das barras do navegador (faixa do relógio no iPhone). Vem no HTML seguindo o tema do
+// aparelho; se a pessoa trocar no botão, components/ThemeProvider.tsx atualiza a cor.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbfbfd" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0c" },
+  ],
+};
+
 const noFlashScript = `
   (function() {
     try {
@@ -51,7 +60,7 @@ const noFlashScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${sans.variable}`}>
+    <html lang="pt-BR" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>

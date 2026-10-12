@@ -7,6 +7,16 @@ type Ctx = { theme: Theme; toggle: () => void };
 
 const ThemeContext = createContext<Ctx | null>(null);
 
+// Aplica o tema: classe "dark" no <html> + cor das barras do navegador (meta theme-color)
+function applyTheme(t: Theme) {
+  document.documentElement.classList.toggle("dark", t === "dark");
+  // As duas etiquetas (tema claro/escuro do aparelho) recebem a cor escolhida no botão
+  const color = t === "dark" ? "#0a0a0c" : "#fbfbfd";
+  document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]').forEach((m) => {
+    m.content = color;
+  });
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
@@ -18,14 +28,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       : "light";
     const initial = stored ?? system;
     setTheme(initial);
-    document.documentElement.classList.toggle("dark", initial === "dark");
+    applyTheme(initial);
   }, []);
 
   const toggle = () => {
     const next = theme === "light" ? "dark" : "light";
     setTheme(next);
     localStorage.setItem("theme", next);
-    document.documentElement.classList.toggle("dark", next === "dark");
+    applyTheme(next);
   };
 
   return (
