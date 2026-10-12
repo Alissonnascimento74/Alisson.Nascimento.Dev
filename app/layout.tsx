@@ -18,14 +18,14 @@ const sans = Inter_Tight({
 
 const { profile } = content.pt;
 const title = `${profile.name} — ${profile.role}`;
-const description = profile.headline;
+const description = profile.seoDescription;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
   title: { default: title, template: `%s · ${profile.name}` },
   description,
   authors: [{ name: profile.name }],
-  alternates: { canonical: "/", languages: { "pt-BR": "/", en: "/en" } },
+  alternates: { canonical: "/", languages: { "pt-BR": "/", en: "/en", "x-default": "/" } },
   openGraph: {
     title,
     description,

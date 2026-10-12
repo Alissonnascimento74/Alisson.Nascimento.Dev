@@ -6,11 +6,13 @@ import { Contact } from "@/components/Contact";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { FloatingThemeToggle } from "@/components/FloatingThemeToggle";
 import { ui } from "@/lib/i18n";
+import { PersonJsonLd } from "@/components/PersonJsonLd";
 
 // Home page in English (Portuguese version: app/page.tsx)
 export default function HomeEn() {
   return (
     <main>
+      <PersonJsonLd lang="en" />
       <ScrollProgress />
       <Nav lang="en" altHref="/" />
       <Hero lang="en" />

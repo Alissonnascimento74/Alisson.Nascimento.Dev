@@ -8,6 +8,9 @@ import { Reveal } from "./Reveal";
 
 // Página de um projeto (usada em /projetos/[slug] e /en/projects/[slug]).
 // `altHref` = a mesma página no outro idioma.
+// Proporção dos prints de iPhone (1206 × 2622 px). Altura calculada pra imagem não sair esticada.
+const shotHeight = (width: number) => Math.round((width * 2622) / 1206);
+
 export function ProjectView({ project, lang, altHref }: { project: Project; lang: Lang; altHref: string }) {
   const t = ui[lang];
   const html = markdownToHtml(project.content);
@@ -54,7 +57,7 @@ export function ProjectView({ project, lang, altHref }: { project: Project; lang
             <>
               {/* Desktop — empilhado, abre em leque no hover */}
               <Reveal>
-                <div className="relative h-[480px] hidden md:block group">
+                <div className="relative h-[520px] hidden md:block group">
                   {project.screenshots.map((src, i) => {
                     // Posição inicial (empilhado no centro com rotação leve)
                     const stacked = [
@@ -77,7 +80,7 @@ export function ProjectView({ project, lang, altHref }: { project: Project; lang
                           src={src}
                           alt={`${t.screenshot} ${i + 1} — ${project.name}`}
                           width={220}
-                          height={440}
+                          height={shotHeight(220)}
                           className="rounded-[2rem] shadow-2xl border border-white/10"
                         />
                       </div>
@@ -94,7 +97,7 @@ export function ProjectView({ project, lang, altHref }: { project: Project; lang
                       src={src}
                       alt={`${t.screenshot} ${i + 1} — ${project.name}`}
                       width={240}
-                      height={480}
+                      height={shotHeight(240)}
                       className="rounded-[2rem] shadow-2xl border border-white/10"
                     />
                   </Reveal>

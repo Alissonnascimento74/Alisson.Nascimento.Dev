@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { content } from "@/data/content";
 import { markdownToHtml } from "@/lib/markdown";
 import { Nav } from "@/components/Nav";
+import { ogImage } from "@/lib/seo";
 
 type Params = Promise<{ slug: string }>;
 
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title: post.title,
     description: post.excerpt,
     alternates: { canonical: `/blog/${slug}` },
-    openGraph: { title: post.title, description: post.excerpt, type: "article", url: `/blog/${slug}` },
+    openGraph: { title: post.title, description: post.excerpt, type: "article", url: `/blog/${slug}`, images: [ogImage], publishedTime: post.date },
   };
 }
 
@@ -55,7 +56,8 @@ export default async function PostPage({ params }: { params: Params }) {
 }
 
 function formatDate(iso: string) {
+  // "2026-05-19" é lido como meia-noite UTC: formata em UTC pra não virar "18 de maio" no Brasil
   return new Date(iso).toLocaleDateString("pt-BR", {
-    day: "2-digit", month: "long", year: "numeric",
+    day: "2-digit", month: "long", year: "numeric", timeZone: "UTC",
   });
 }

@@ -44,6 +44,8 @@ const pt = {
     role: "Desenvolvedor iOS em formação",
     location: "Guarulhos, São Paulo",
     headline: "Transformando ideias em apps.",
+    // Texto que aparece embaixo do título no Google e na prévia do link (120–160 letras)
+    seoDescription: "Alisson Nascimento, desenvolvedor iOS em formação em Guarulhos-SP. Apps para iPhone em Swift e SwiftUI, projetos, blog e contato.",
     story: "Dos motores ao Xcode.",
     bio: "Antes de escrever minha primeira linha de código, passei 6 anos como mecânico de automóveis. Hoje estudo Engenharia de Software na UniFamma e construo apps para iPhone com Swift e SwiftUI.",
     bio2: "A oficina me ensinou a diagnosticar antes de trocar peça, e é assim que encaro um bug: entender a causa de verdade antes de mexer no código. Também me ensinou a explicar coisa técnica pra quem não é da área, que é o tema da minha pesquisa com realidade aumentada.",
@@ -122,6 +124,7 @@ const en: typeof pt = {
     role: "Junior iOS Developer",
     location: "Guarulhos, São Paulo, Brazil",
     headline: "Turning ideas into apps.",
+    seoDescription: "Alisson Nascimento, junior iOS developer from São Paulo, Brazil. iPhone apps built with Swift and SwiftUI, projects, blog and contact.",
     story: "From engines to Xcode.",
     bio: "Before writing my first line of code, I spent 6 years as a car mechanic. Today I study Software Engineering at UniFamma (Brazil) and build iPhone apps with Swift and SwiftUI.",
     bio2: "The garage taught me to diagnose before replacing parts, and that’s how I approach bugs: understand the real cause before touching the code. It also taught me to explain technical things to non-experts, which is the topic of my augmented reality research.",

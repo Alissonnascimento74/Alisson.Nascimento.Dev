@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { content } from "@/data/content";
 import { paths } from "@/lib/i18n";
+import { ogImage } from "@/lib/seo";
 import { ProjectView } from "@/components/ProjectView";
 
 type Params = Promise<{ slug: string }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title: p.name,
     description: p.tagline,
     alternates: { canonical: paths.pt.project(slug), languages: { "pt-BR": paths.pt.project(slug), en: paths.en.project(slug) } },
-    openGraph: { title: p.name, description: p.tagline, url: paths.pt.project(slug) },
+    openGraph: { title: p.name, description: p.tagline, images: [ogImage], url: paths.pt.project(slug) },
   };
 }
 

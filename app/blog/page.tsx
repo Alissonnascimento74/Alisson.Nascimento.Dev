@@ -2,12 +2,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { content } from "@/data/content";
 import { Nav } from "@/components/Nav";
+import { ogImage } from "@/lib/seo";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Blog",
   description: "Artigos sobre desenvolvimento iOS, Swift e design.",
   alternates: { canonical: "/blog" },
+  openGraph: { title: "Blog · Alisson Nascimento", description: "Artigos sobre desenvolvimento iOS, Swift e design.", url: "/blog", images: [ogImage] },
 };
 
 export default function BlogIndex() {
@@ -46,7 +48,8 @@ export default function BlogIndex() {
 }
 
 function formatDate(iso: string) {
+  // "2026-05-19" é lido como meia-noite UTC: formata em UTC pra não virar "18 de maio" no Brasil
   return new Date(iso).toLocaleDateString("pt-BR", {
-    day: "2-digit", month: "long", year: "numeric",
+    day: "2-digit", month: "long", year: "numeric", timeZone: "UTC",
   });
 }

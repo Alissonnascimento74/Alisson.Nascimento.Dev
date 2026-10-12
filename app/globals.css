@@ -44,3 +44,15 @@ body { font-feature-settings: "ss01", "cv01"; }
 .prose pre code { padding: 0; background: none; color: inherit; font-size: inherit; white-space: pre; }
 .dark .prose pre code { background: none; }
 .prose strong { font-weight: 600; }
+
+/* Acessibilidade: quem ativou "reduzir movimento" no celular/computador vê tudo parado e já visível */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
